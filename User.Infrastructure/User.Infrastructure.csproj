@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\KnowTask.Caching\KnowTask.Caching.csproj" />
+      <ProjectReference Include="..\KnowTask.Messaging\KnowTask.Messaging.csproj" />
+      <ProjectReference Include="..\KnowTask.Persistence\KnowTask.Persistence.csproj" />
+      <ProjectReference Include="..\User.Application\User.Application.csproj" />
+      <ProjectReference Include="..\User.Domain\User.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

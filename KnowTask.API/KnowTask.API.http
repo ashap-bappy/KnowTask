@@ -1,0 +1,6 @@
+@KnowTask.API_HostAddress = http://localhost:5102
+
+GET {{KnowTask.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
