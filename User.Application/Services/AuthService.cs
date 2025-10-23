@@ -37,5 +37,10 @@ namespace User.Application.Services
             _userRepository.AddAsync(user);
             return GenerateTokens(user);
         }
+
+        private Task<AuthResponse> GenerateTokens(UserModel user)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
