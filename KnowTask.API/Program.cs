@@ -1,9 +1,13 @@
+using KnowTask.Core.Application;
 using User.API;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+
+// Add Core Services
+builder.Services.AddCoreApplication();
 
 // Add modules Controllers and Services
 builder.Services.AddUserApi(builder.Configuration).AddUserModule(builder.Configuration);
