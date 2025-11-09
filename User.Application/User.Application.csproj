@@ -17,4 +17,10 @@
       <ProjectReference Include="..\User.Domain\User.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="CQRS\CommandHandlers\" />
+      <Folder Include="CQRS\QueryHandlers\" />
+      <Folder Include="CQRS\Queries\" />
+    </ItemGroup>
+
 </Project>

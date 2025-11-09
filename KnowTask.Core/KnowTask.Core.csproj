@@ -6,13 +6,4 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-      <PackageReference Include="MediatR" Version="13.1.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Application\CQRS\Commands\" />
-      <Folder Include="Application\CQRS\Queries\" />
-    </ItemGroup>
-
 </Project>
