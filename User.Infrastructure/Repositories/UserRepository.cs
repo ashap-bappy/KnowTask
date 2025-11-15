@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using User.Application.Contracts;
+using User.Application.Interfaces.Persistence;
 using User.Domain.Entities;
 using User.Infrastructure.Persistence;
 

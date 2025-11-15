@@ -11,11 +11,5 @@ namespace User.API.Controllers
         {
             _mediator = mediator;
         }
-
-        [HttpPost]
-        public async Task<IActionResult> Create(CreateUserCommand command)
-        {
-
-        }
     }
 }

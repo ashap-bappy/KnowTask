@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
-using User.Application.Contracts;
+using User.Application.Interfaces.Authentication;
+using User.Application.Interfaces.Persistence;
 using User.Domain.Entities;
 using static User.Application.DTOs.AuthModel;
 

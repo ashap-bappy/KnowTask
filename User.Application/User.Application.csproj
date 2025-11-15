@@ -7,20 +7,19 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <None Remove="Interfaces\Persistence\IUserRepository.cs~RF35a9d0d.TMP" />
+    </ItemGroup>
+
+    <ItemGroup>
       <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
-      <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.10" />
+      <PackageReference Include="MediatR" Version="13.1.0" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.0" />
       <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\KnowTask.Core\KnowTask.Core.csproj" />
       <ProjectReference Include="..\User.Domain\User.Domain.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="CQRS\CommandHandlers\" />
-      <Folder Include="CQRS\QueryHandlers\" />
-      <Folder Include="CQRS\Queries\" />
     </ItemGroup>
 
 </Project>
