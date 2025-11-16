@@ -1,4 +1,5 @@
 ﻿using KnowTask.Core.CQRS;
+namespace KnowTask.Core.Mediator;
 
 public interface IAppMediator
 {

@@ -3,7 +3,7 @@ using static User.Application.DTOs.AuthModel;
 
 namespace User.Application.CQRS.Auth.Queries.LoginUser
 {
-    public record LoginUserQuery(LoginRequest LoginRequest) : IQuery<AuthResponse>
+    public abstract record LoginUserQuery(LoginRequest LoginRequest) : IQuery<AuthResponse>
     {
     }
 }

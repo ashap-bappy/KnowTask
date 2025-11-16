@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using KnowTask.Core.Mediator;
+using Microsoft.AspNetCore.Mvc;
 
 namespace User.API.Controllers
 {

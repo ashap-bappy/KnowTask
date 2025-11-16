@@ -1,4 +1,5 @@
 ﻿using KnowTask.Core.CQRS;
+using KnowTask.Core.Mediator;
 using MediatR;
 using User.Infrastructure.Mediator.Adapters;
 
