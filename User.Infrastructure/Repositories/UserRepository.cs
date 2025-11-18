@@ -5,25 +5,17 @@ using User.Infrastructure.Persistence;
 
 namespace User.Infrastructure.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository(UserDbContext context) : IUserRepository
     {
-        private readonly UserDbContext _context;
-
-        public UserRepository(UserDbContext context)
-        {
-            _context = context;
-        }
-
         public async Task AddAsync(UserModel user)
         {
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            context.Users.Add(user);
+            await context.SaveChangesAsync();
         }
 
         public Task<UserModel?> GetByEmailAsync(string email)
         {
-            return _context.Users.FirstOrDefaultAsync(u => u.Email == email);
-
+            return context.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
     }
 }

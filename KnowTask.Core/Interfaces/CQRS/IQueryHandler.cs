@@ -1,4 +1,4 @@
-namespace KnowTask.Core.CQRS;
+namespace KnowTask.Core.Interfaces.CQRS;
 
 public interface IQueryHandler<in TQuery, TResponse> where TQuery : IQuery<TResponse>
 {

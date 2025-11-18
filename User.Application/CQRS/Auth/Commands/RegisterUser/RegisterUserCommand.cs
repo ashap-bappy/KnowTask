@@ -1,4 +1,4 @@
-﻿using KnowTask.Core.CQRS;
+﻿using KnowTask.Core.Interfaces.CQRS;
 using static User.Application.DTOs.AuthModel;
 
 namespace User.Application.CQRS.Auth.Commands.RegisterUser

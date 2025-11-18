@@ -1,15 +1,15 @@
 ﻿namespace User.Application.DTOs
 {
-    public class AuthModel
+    public abstract class AuthModel
     {
-        public class RegisterRequest
+        public abstract class RegisterRequest
         {
             public required string Email { get; set; }
             public required string Password { get; set; }
             public required string FullName { get; set; }
         }
 
-        public class LoginRequest
+        public abstract class LoginRequest
         {
             public required string Email { get; set; }
             public required string Password { get; set; }
@@ -19,6 +19,8 @@
         {
             public required string AccessToken { get; set; }
             public required string RefreshToken { get; set; }
+            public required string Email { get; set; }
+            public required string FullName { get; set; }
         }
     }
 }

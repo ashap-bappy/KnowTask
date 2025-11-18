@@ -3,12 +3,8 @@ using User.Domain.Entities;
 
 namespace User.Infrastructure.Persistence
 {
-    public class UserDbContext : DbContext
+    public class UserDbContext(DbContextOptions options) : DbContext(options)
     {
-        public UserDbContext(DbContextOptions options) : base(options)
-        {
-        }
-
         public DbSet<UserModel> Users => Set<UserModel>();
     }
 }

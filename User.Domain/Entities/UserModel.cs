@@ -1,22 +1,26 @@
-﻿namespace User.Domain.Entities
+﻿using User.Domain.Interfaces;
+
+namespace User.Domain.Entities
 {
-    public class UserModel
+    public class UserModel(string email, string fullName)
     {
-        public Guid Id { get; private set; }
-        public string Email { get; private set; }
-        public string PasswordHash { get; private set; }
-        public string FullName { get; private set; }
-        public DateTime CreatedAt { get; private set; }
+        public Guid Id { get; private set; } = Guid.NewGuid();
+        public string Email { get; private set; } = email;
+        public string FullName { get; private set; } = fullName;
+        public string PasswordHash { get; private set; } = null!;
+        public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
 
-        private UserModel() { } // For EF
-
-        public UserModel(string email, string passwordHash, string fullName)
+        // Domain expresses the need for hashing but does not implement it.
+        public void SetPassword(string password, IPasswordHasher hasher)
         {
-            Id = Guid.NewGuid();
-            Email = email;
-            PasswordHash = passwordHash;
-            FullName = fullName;
-            CreatedAt = DateTime.UtcNow;
+            ArgumentNullException.ThrowIfNull(hasher);
+            PasswordHash = hasher.HashPassword(password);
+        }
+
+        public bool VerifyPassword(string password, IPasswordHasher hasher)
+        {
+            ArgumentNullException.ThrowIfNull(hasher);
+            return hasher.VerifyHashedPassword(password, PasswordHash);
         }
     }
 }
