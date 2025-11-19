@@ -10,6 +10,7 @@
       <ProjectReference Include="..\KnowTask.Caching\KnowTask.Caching.csproj" />
       <ProjectReference Include="..\KnowTask.Messaging\KnowTask.Messaging.csproj" />
       <ProjectReference Include="..\KnowTask.Persistence\KnowTask.Persistence.csproj" />
+      <ProjectReference Include="..\KnowTask.SharedInfra\KnowTask.SharedInfra.csproj" />
       <ProjectReference Include="..\User.Application\User.Application.csproj" />
       <ProjectReference Include="..\User.Domain\User.Domain.csproj" />
     </ItemGroup>

@@ -1,9 +1,14 @@
+using KnowTask.SharedInfra.Mediator;
 using User.API;
+using User.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+
+// Add mediator
+builder.Services.AddAppMediator();
 
 // Add modules Controllers and Services
 builder.Services.AddUserApi(builder.Configuration).AddUserModule(builder.Configuration);

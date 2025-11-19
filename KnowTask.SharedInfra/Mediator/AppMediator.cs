@@ -16,12 +16,13 @@ public sealed class AppMediator(IServiceProvider serviceProvider) : IAppMediator
 
     public Task<TResponse> Send<TResponse>(ICommand<TResponse> command, CancellationToken cToken = default)
     {
-        var handler = _serviceProvider.GetRequiredService<ICommandHandler<ICommand<TResponse>>>();
-        return handler.Handle(command, cancellationToken);
+        var handler = _serviceProvider.GetRequiredService<ICommandHandler<ICommand<TResponse>,  TResponse>>();
+        return handler.Handle(command, cToken);
     }
 
     public Task<TResponse> Send<TResponse>(IQuery<TResponse> query, CancellationToken cToken = default)
     {
-        throw new NotImplementedException();
+        var handler = _serviceProvider.GetRequiredService<IQueryHandler<IQuery<TResponse>,  TResponse>>();
+        return handler.Handle(query, cToken);
     }
 }
