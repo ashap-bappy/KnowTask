@@ -12,13 +12,13 @@ namespace User.Application.CQRS.Auth.Commands.RegisterUser
     {
         public async Task<AuthResponse> Handle(RegisterUserCommand command, CancellationToken cancellationToken)
         {
-            var existingUser = await userRepository.GetByEmailAsync(command.RegisterRequest.Email);
+            var existingUser = await userRepository.GetByEmailAsync(command.RegisterRequest.Email, cancellationToken);
             if (existingUser != null) throw new InvalidOperationException("Email already exists");
 
             var user = new UserModel(command.RegisterRequest.Email, command.RegisterRequest.FullName);
             user.SetPassword(command.RegisterRequest.Password, passwordHasher);
             
-            await userRepository.AddAsync(user);
+            await userRepository.AddAsync(user, cancellationToken);
             
             var accessToken = tokenGenerator.GenerateAccessToken(user);
             var refreshToken = tokenGenerator.GenerateRefreshToken();

@@ -7,15 +7,21 @@ namespace User.Infrastructure.Repositories
 {
     public class UserRepository(UserDbContext context) : IUserRepository
     {
-        public async Task AddAsync(UserModel user)
+        public async Task AddAsync(UserModel user, CancellationToken ct = default)
         {
-            context.Users.Add(user);
-            await context.SaveChangesAsync();
+            await context.Users.AddAsync(user, ct);
         }
 
-        public Task<UserModel?> GetByEmailAsync(string email)
+        public async Task<UserModel?> GetByIdAsync(Guid id, CancellationToken ct = default)
         {
-            return context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            var user = await context.Users.FirstOrDefaultAsync(x => x.Id == id, cancellationToken: ct);
+            return user;
+        }
+
+        public async Task<UserModel?> GetByEmailAsync(string email, CancellationToken ct = default)
+        {
+            var user = await context.Users.FirstOrDefaultAsync(x => x.Email == email, cancellationToken: ct);
+            return user;
         }
     }
 }

@@ -5,12 +5,8 @@ namespace User.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class UserController : ControllerBase
+    public class UserController(IAppMediator mediator) : ControllerBase
     {
-        private IAppMediator _mediator;
-        public UserController(IAppMediator mediator)
-        {
-            _mediator = mediator;
-        }
+        private IAppMediator _mediator = mediator;
     }
 }
