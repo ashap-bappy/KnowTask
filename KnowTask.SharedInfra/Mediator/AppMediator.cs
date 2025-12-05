@@ -28,13 +28,13 @@ public sealed class AppMediator(IServiceProvider serviceProvider) : IAppMediator
         ArgumentNullException.ThrowIfNull(command);
         
         var commandType = command.GetType();
-        var handler = (ICommandHandler<ICommand<TResponse>, TResponse>)CommandHandlers.GetOrAdd(commandType, static (type, sp) =>
+        dynamic handler = CommandHandlers.GetOrAdd(commandType, static (type, sp) =>
         {
-            var handlerType = typeof(ICommandHandler<,>).MakeGenericType(type);
+            var handlerType = typeof(ICommandHandler<,>).MakeGenericType(type, typeof(TResponse));
             return sp.GetRequiredService(handlerType);
         }, serviceProvider);
         
-        return handler.Handle(command, cToken);
+        return handler.Handle((dynamic)command, cToken);
     }
 
     public Task<TResponse> Send<TResponse>(IQuery<TResponse> query, CancellationToken cToken = default)
@@ -44,7 +44,7 @@ public sealed class AppMediator(IServiceProvider serviceProvider) : IAppMediator
         var commandType = query.GetType();
         var handler = (IQueryHandler<IQuery<TResponse>, TResponse>)QueryHandlers.GetOrAdd(commandType, static (type, sp) =>
         {
-            var handlerType = typeof(IQueryHandler<,>).MakeGenericType(type);
+            var handlerType = typeof(IQueryHandler<,>).MakeGenericType(type, typeof(TResponse));
             return sp.GetRequiredService(handlerType);
         }, serviceProvider);
         

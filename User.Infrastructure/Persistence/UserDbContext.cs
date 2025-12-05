@@ -11,7 +11,7 @@ namespace User.Infrastructure.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("users");
+            modelBuilder.HasDefaultSchema("user");
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(UserDbContext).Assembly);
         }
 

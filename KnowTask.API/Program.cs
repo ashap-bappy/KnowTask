@@ -12,7 +12,7 @@ builder.Services.AddAppMediator();
 
 // Add modules Controllers and Services
 builder.Services.AddUserApi(builder.Configuration) // add controllers/endpoints
-                .AddUserModule(builder.Configuration); // add services
+                .ConfigureUserDependencyInjection(builder.Configuration); // configure dependency injection
     
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
